@@ -1,0 +1,31 @@
+
+
+.formGroup{
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: auto;
+    gap:20px;
+}
+
+.formGroup input ,.formGroup textarea{
+    width: 100%;
+    
+    
+}
+.formGroup input{
+    padding: 10px;
+}
+
+.formGroup textarea{
+    padding: 20px;
+}
+
+.formGroup h3 {
+    text-align: center;
+}
+
+.formGroup button{
+    padding: 10px;
+    
+}
