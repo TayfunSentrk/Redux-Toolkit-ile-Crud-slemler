@@ -46,3 +46,31 @@ const createChess=createAsyncThunk("chess/create",async(payload,{rejectWithValue
         rejectWithValue(error.status.code);
     }
 })
+
+
+
+const chessSlicer=createSlice({
+    name:"chessSlicer",
+    initialState,
+    extraReducers:(builder)=>{
+        builder.addCase(fetchChessList.pending,(state,action)=>{
+            state.loading=true;
+            state.error="";
+        });
+
+        builder.addCase(fetchChessList.fulfilled,(state,action)=>{
+            state.error="";
+            state.loading=false;
+            state.chessArray=action.payload;
+
+        });
+
+        builder.addCase(fetchChessList.rejected,(state,action)=>{
+            state.error=action.payload,
+            state.loading=false;
+            state.chessArray=[];
+        })
+
+
+    }
+})
