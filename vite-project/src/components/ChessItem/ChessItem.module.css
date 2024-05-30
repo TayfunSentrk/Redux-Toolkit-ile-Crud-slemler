@@ -6,4 +6,35 @@
     justify-content: center;
     padding: 20px;
     flex-basis: 23%;
+    border: 1px solid black;
+    
 }
+
+.container img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+    
+}
+
+.container div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    
+}
+
+
+.container div .delete,.container div .update{
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+}
+.container div .delete{
+    background-color:red;
+ }
+
+.container div .update{
+    background-color:green;
+ }
