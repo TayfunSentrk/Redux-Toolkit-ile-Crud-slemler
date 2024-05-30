@@ -18,7 +18,7 @@ export const fetchChessList=createAsyncThunk("chess/getAll",async(payload,{rejec
 
         catch(error){
 
-            rejectWithValue(error.response.status)
+           return rejectWithValue(error.response.status)
         }
 })
 
@@ -30,7 +30,7 @@ export const fetchChessGetById=createAsyncThunk("chess/getById",async (payload,{
     }
 
     catch(error){
-        rejectWithValue(error.status.code);
+       return rejectWithValue(error.status.code);
     }
 })
 
@@ -43,7 +43,7 @@ export const createChess=createAsyncThunk("chess/create",async(payload,{rejectWi
     }
 
     catch(error){
-        rejectWithValue(error.status.code);
+        return   rejectWithValue(error.status.code);
     }
 })
 
@@ -72,6 +72,23 @@ const chessSlicer=createSlice({
             state.error=action.payload,
             state.loading=false;
             state.chessArray=[];
+        });
+
+        builder.addCase(createChess.pending,(state,action)=>{
+            state.loading=true;
+            state.error="";
+            
+        });
+
+        builder.addCase(createChess.fulfilled,(state,action)=>{
+            state.loading=false;
+            state.chessArray.push(action.payload);
+            state.error="";
+        });
+
+        builder.addCase(createChess.rejected,(state,action)=>{
+            state.loading=false;
+            state.error=action.payload;
         })
 
 
