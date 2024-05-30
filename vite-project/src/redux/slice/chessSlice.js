@@ -3,9 +3,9 @@ import apiUrl from "../../utils/apiUrl";
 import axios from "axios";
 
 const initalState={
-    chessArray=[],
+    chessArray:[],
     loading:false,
-    error:""
+    error:"",
     selectedChessArray:{}
 }
     
@@ -51,7 +51,7 @@ export const createChess=createAsyncThunk("chess/create",async(payload,{rejectWi
 
 const chessSlicer=createSlice({
     name:"chessSlicer",
-    initialState,
+    initalState,
     extraReducers:(builder)=>{
         builder.addCase(fetchChessList.pending,(state,action)=>{
             state.loading=true;
