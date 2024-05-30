@@ -1,39 +1,32 @@
 {
-    "data": [
-        {
-            "name": "Magnus Carlsen",
-            "age": 33,
-            "biography": "Magnus Carlsen is a Norwegian chess grandmaster and the current World Chess Champion. He was born on November 30, 1990.",
-            "image_url": "https://s.yimg.com/fz/api/res/1.2/LMhdw_6YjdiLClOtMjNwpQ--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpbGw7aD0yMjA7cT04MDt3PTE0OA--/https://s.yimg.com/zb/imgv1/ebbdaa49-7385-3bf5-87db-12c71b5104e2/t_500x300",
-            "id": "1"
-        },
-        {
-            "name": "Garry Kasparov",
-            "age": 60,
-            "biography": "Garry Kasparov is a Russian chess grandmaster, former World Chess Champion, writer, and political activist. He was born on April 13, 1963.",
-            "image_url": "https://img.tamindir.com/2022/03/470608/garry-kasparov-kimdir.jpg",
-            "id": "2"
-        },
-        {
-            "name": "Hikaru Nakamura",
-            "age": 36,
-            "biography": "Hikaru Nakamura is an American chess grandmaster and a five-time U.S. Chess Champion. He was born on December 9, 1987.",
-            "image_url": "https://pbs.twimg.com/profile_images/1536725744029663234/GS1jjuXF_400x400.jpg",
-            "id": "3"
-        },
-        {
-            "name": "Judit Polgar",
-            "age": 47,
-            "biography": "Judit Polgar is a Hungarian chess grandmaster. She is generally considered the strongest female chess player of all time. She was born on July 23, 1976.",
-            "image_url": "https://satrancistanbul.com/wp-content/uploads/2021/11/judit-polgar-kimdir.jpg",
-            "id": "4"
-        },
-        {
-            "id": 1717061650808,
-            "name": "Vishwanathan Anand",
-            "age": "53",
-            "biography": "Vishwanathan Anand is an Indian chess grandmaster and former World Chess Champion. He was born on December 11, 1969.",
-            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_qtKz5P1tHDmsEi20FWPdzs8SPW63fb7BLw&s"
-        }
-    ]
+  "data": [
+    {
+      "name": "Magnus Carlsen",
+      "age": 33,
+      "biography": "Magnus Carlsen is a Norwegian chess grandmaster and the current World Chess Champion. He was born on November 30, 1990.",
+      "image_url": "https://s.yimg.com/fz/api/res/1.2/LMhdw_6YjdiLClOtMjNwpQ--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpbGw7aD0yMjA7cT04MDt3PTE0OA--/https://s.yimg.com/zb/imgv1/ebbdaa49-7385-3bf5-87db-12c71b5104e2/t_500x300",
+      "id": "1"
+    },
+    {
+      "name": "Garry Kasparov",
+      "age": 60,
+      "biography": "Garry Kasparov is a Russian chess grandmaster, former World Chess Champion, writer, and political activist. He was born on April 13, 1963.",
+      "image_url": "https://img.tamindir.com/2022/03/470608/garry-kasparov-kimdir.jpg",
+      "id": "2"
+    },
+    {
+      "name": "Hikaru Nakamura",
+      "age": 36,
+      "biography": "Hikaru Nakamura is an American chess grandmaster and a five-time U.S. Chess Champion. He was born on December 9, 1987.",
+      "image_url": "https://pbs.twimg.com/profile_images/1536725744029663234/GS1jjuXF_400x400.jpg",
+      "id": "3"
+    },
+    {
+      "name": "Judit Polgar",
+      "age": 47,
+      "biography": "Judit Polgar is a Hungarian chess grandmaster. She is generally considered the strongest female chess player of all time. She was born on July 23, 1976.",
+      "image_url": "https://satrancistanbul.com/wp-content/uploads/2021/11/judit-polgar-kimdir.jpg",
+      "id": "4"
+    }
+  ]
 }

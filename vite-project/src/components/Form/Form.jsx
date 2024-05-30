@@ -16,7 +16,7 @@ const dispatch=useDispatch();
             alert("Lütfen verileri doldurunuz") 
             return
         }
-            const data={id:Date.now(),name,age,biography,image_url};
+            const data={id:Date.now().toString(),name,age,biography,image_url};
             dispatch(createChess(data));
             setName("");
             setBiography("");

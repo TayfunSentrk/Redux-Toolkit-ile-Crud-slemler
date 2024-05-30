@@ -1,8 +1,13 @@
 import React from 'react'
 import styles from "./ChessItem.module.css"
+import { useDispatch } from 'react-redux'
+import { deleteChess } from '../../redux/slice/chessSlice'
 const ChessItem = ({item}) => {
 
-    const {name,age,biography,image_url}=item
+    const {name,age,biography,image_url,id}=item
+  const dispatch=useDispatch();
+
+
   return (
     <div className={styles.container}>
             <h3>{name}</h3>
@@ -11,7 +16,7 @@ const ChessItem = ({item}) => {
             <img src={image_url}/>
 
             <div>
-              <button className={styles.delete}>Sil</button>
+              <button className={styles.delete} onClick={()=>dispatch(deleteChess(id))} >Sil</button>
               <button className={styles.update}>Düzenle</button>
             </div>
     </div>

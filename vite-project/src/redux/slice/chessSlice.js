@@ -48,6 +48,17 @@ export const createChess=createAsyncThunk("chess/create",async(payload,{rejectWi
 })
 
 
+export const deleteChess=createAsyncThunk("chess/delete",async(payload,{rejectWithValue,state,dispatch})=>{
+    try{
+        await axios.delete(`${apiUrl}/${payload}`)
+        return payload;
+    }
+
+    catch(error){
+        return rejectWithValue(error.status.code);
+    }
+});
+
 
 const chessSlicer=createSlice({
     name:"chessSlicer",
@@ -89,6 +100,22 @@ const chessSlicer=createSlice({
         builder.addCase(createChess.rejected,(state,action)=>{
             state.loading=false;
             state.error=action.payload;
+        });
+
+        builder.addCase(deleteChess.pending,(state,action)=>{
+            state.loading=true;
+            state.error="";
+        });
+        builder.addCase(deleteChess.fulfilled,(state,action)=>{
+            state.loading=false;
+            state.error="";
+            state.chessArray=state.chessArray.filter((item)=>item.id!==action.payload)
+        });
+
+        builder.addCase(deleteChess.rejected,(state,action)=>{
+            state.loading=false;
+            state.error=action.payload;
+            
         })
 
 
