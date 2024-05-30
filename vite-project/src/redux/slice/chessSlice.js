@@ -6,7 +6,7 @@ const initialState={
     chessArray:[],
     loading:false,
     error:"",
-    selectedChessArray:{}
+    selectedChessArray:{id:"",age:"",biography:"",image_url:""}
 }
     
 
@@ -59,6 +59,16 @@ export const deleteChess=createAsyncThunk("chess/delete",async(payload,{rejectWi
     }
 });
 
+export const updateChess=createAsyncThunk("chess/update",async({id,data},{rejectWithValue,state,action})=>{
+        try{
+            const reponse=await axios.put(`${apiUrl}/${id}`,data);
+            return reponse.data;
+        }   
+
+        catch(error){
+            return rejectWithValue(error.status.code)
+        }   
+})
 
 const chessSlicer=createSlice({
     name:"chessSlicer",
@@ -116,7 +126,44 @@ const chessSlicer=createSlice({
             state.loading=false;
             state.error=action.payload;
             
+        });
+
+        builder.addCase(updateChess.pending,(state,action)=>{
+            state.loading=true;
+            state.error="";
+        });
+
+        builder.addCase(updateChess.fulfilled,(state,action)=>{
+            console.log(action);
+            console.log(state);
+            state.loading=false;
+            state.chessArray=state.chessArray.map((item)=>item.id!==action.payload.id?item:action.payload)
+            state.error="";
+            state.selectedChessArray={id:"",age:"",biography:"",image_url:""};
+        });
+        builder.addCase(updateChess.rejected,(state,action)=>{
+            state.loading=false;
+            state.error=action.payload;
+        });
+
+        builder.addCase(fetchChessGetById.pending,(state,action)=>{
+            state.loading=true;
+            state.error="";
+
+        });
+
+        builder.addCase(fetchChessGetById.fulfilled,(state,action)=>{
+            state.loading=false;
+            state.error="";
+            state.selectedChessArray=action.payload;
+        });
+
+        builder.addCase(fetchChessGetById.rejected,(state,action)=>{
+            state.loading=false;
+            state.error=action.payload;
+            state.selectedChessArray={};
         })
+
 
 
     }

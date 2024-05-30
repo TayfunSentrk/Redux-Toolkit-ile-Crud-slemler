@@ -15,18 +15,18 @@
       "id": "2"
     },
     {
-      "name": "Hikaru Nakamura",
+      "id": "3",
+      "name": "Hikaru Nakamura12",
       "age": 36,
       "biography": "Hikaru Nakamura is an American chess grandmaster and a five-time U.S. Chess Champion. He was born on December 9, 1987.",
-      "image_url": "https://pbs.twimg.com/profile_images/1536725744029663234/GS1jjuXF_400x400.jpg",
-      "id": "3"
+      "image_url": "https://pbs.twimg.com/profile_images/1536725744029663234/GS1jjuXF_400x400.jpg"
     },
     {
+      "id": "4",
       "name": "Judit Polgar",
       "age": 47,
       "biography": "Judit Polgar is a Hungarian chess grandmaster. She is generally considered the strongest female chess player of all time. She was born on July 23, 1976.",
-      "image_url": "https://satrancistanbul.com/wp-content/uploads/2021/11/judit-polgar-kimdir.jpg",
-      "id": "4"
+      "image_url": "https://satrancistanbul.com/wp-content/uploads/2021/11/judit-polgar-kimdir.jpg"
     }
   ]
 }

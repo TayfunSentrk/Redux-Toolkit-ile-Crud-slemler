@@ -1,27 +1,59 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./Form.module.css"
-import { createChess } from '../../redux/slice/chessSlice';
+import { createChess, updateChess } from '../../redux/slice/chessSlice';
 import { useDispatch, useSelector } from 'react-redux';
 const Form = () => {
 
+
+const dispatch=useDispatch();
+
+
+
+const data=useSelector((store)=>store.chessReducer.selectedChessArray)
 const [name,setName]=useState("");
 const [age,setAge]=useState("");
 const [biography,setBiography]=useState("");
 const [image_url,setUrl]=useState("");
-const dispatch=useDispatch();
+useEffect(()=>{
+console.log(Object.values(data).length);
+   if( data.name!=="" && data.age!=="" && data.biography!=="" && data.image_url!==""){
+    setName(data.name);
+    setAge(data.age);
+    setBiography(data.biography);
+    setUrl(data.image_url);
+    }
+   
+},[data])
 
     const submit=(e)=>{
         e.preventDefault();
+
+     
+
+
         if(name==="" || age==="" || biography==="" || image_url==="" ) {
             alert("Lütfen verileri doldurunuz") 
             return
         }
+
+        if(Object.values(data).length>0){
+            console.log("nasılsın");
+    
+        dispatch(updateChess({id:data.id.toString(),data:{id:data.id,name,age,biography,image_url}}))
+        }
+
+        else{
             const data={id:Date.now().toString(),name,age,biography,image_url};
             dispatch(createChess(data));
-            setName("");
+            
+        }
+
+        setName("");
             setBiography("");
             setUrl("");
             setAge("");
+
+           
     
         
     }
@@ -49,7 +81,7 @@ const dispatch=useDispatch();
             </div>
 
             <div>
-                <button type='submit'>Ekleme Yapınız</button>
+                <button type='submit'> {data.name!=="" && data.age!=="" && data.biography!=="" && data.image_url!==""?"Günceleme Yapınız":"Ekleme Yapınız"} </button>
             </div>
         </form>
     </div>
