@@ -1,2 +1,2 @@
-const apiUrl="http://localhost:5000/chess_players";
+const apiUrl="http://localhost:5000/data";
 export default apiUrl

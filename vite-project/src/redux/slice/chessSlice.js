@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import apiUrl from "../../utils/apiUrl";
 import axios from "axios";
 
-const initalState={
+const initialState={
     chessArray:[],
     loading:false,
     error:"",
@@ -13,8 +13,8 @@ const initalState={
 export const fetchChessList=createAsyncThunk("chess/getAll",async(payload,{rejectWithValue,getState,dispatch})=>{
         try{
             const response=await axios.get(apiUrl);
-            return response.chess_players
-        }
+            return response.data
+             }
 
         catch(error){
 
@@ -25,8 +25,8 @@ export const fetchChessList=createAsyncThunk("chess/getAll",async(payload,{rejec
 
 export const fetchChessGetById=createAsyncThunk("chess/getById",async (payload,{rejectWithValue,state,dispatch})=>{
     try{
-        const response=await axios.get(`${apiUrl}/${id}`);
-        return response.chess_players;
+        const response=await axios.get(`${apiUrl}/${payload}`);
+        return response.data;
     }
 
     catch(error){
@@ -39,7 +39,7 @@ export const createChess=createAsyncThunk("chess/create",async(payload,{rejectWi
 
     try{
        const response= await axios.post(`${apiUrl}`,payload);
-       return response.chess_players
+       return response.data
     }
 
     catch(error){
@@ -51,7 +51,10 @@ export const createChess=createAsyncThunk("chess/create",async(payload,{rejectWi
 
 const chessSlicer=createSlice({
     name:"chessSlicer",
-    initalState,
+    initialState:initialState,
+    reducers:{
+
+    },
     extraReducers:(builder)=>{
         builder.addCase(fetchChessList.pending,(state,action)=>{
             state.loading=true;

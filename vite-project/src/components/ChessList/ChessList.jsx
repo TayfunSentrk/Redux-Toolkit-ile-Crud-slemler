@@ -7,14 +7,15 @@ import ChessItem from '../ChessItem/ChessItem';
 const ChessList = () => {
     const dispatch=useDispatch();
     const data=useSelector((store)=>store.chessReducer)
-    
+    console.log(data);
     const {chessArray,loading,error}=data;
     useEffect(()=>{
         dispatch(fetchChessList())
     },[dispatch])
 
   return (
-    <div className={styles.container}>
+    <>
+     <div className={styles.container}>
         {
             loading && <p>Loading</p>
         }
@@ -26,7 +27,8 @@ const ChessList = () => {
         {
             !loading && !error && chessArray.map((item)=><ChessItem key={item.id} item={item}/>)
         }
-    </div>
+    </div></>
+   
   )
 }
 
