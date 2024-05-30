@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./ChessItem.module.css"
 import { useDispatch } from 'react-redux'
-import { deleteChess } from '../../redux/slice/chessSlice'
+import { deleteChess, fetchChessGetById } from '../../redux/slice/chessSlice'
 const ChessItem = ({item}) => {
 
     const {name,age,biography,image_url,id}=item
@@ -17,7 +17,7 @@ const ChessItem = ({item}) => {
 
             <div>
               <button className={styles.delete} onClick={()=>dispatch(deleteChess(id))} >Sil</button>
-              <button className={styles.update}>Düzenle</button>
+              <button className={styles.update} onClick={()=>dispatch(fetchChessGetById(id))}>Düzenle</button>
             </div>
     </div>
   )
